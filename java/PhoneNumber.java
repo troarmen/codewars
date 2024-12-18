@@ -14,23 +14,11 @@ public class PhoneNumber{
     }
 
     public static String createPhoneNumber(int[] numbers) {
-        String resultado = "";
-        for(int i = 0; i < numbers.length; i++){
-            if(i == 0){
-                resultado += "(" + numbers[i];
-            }
-            else if(i <= 2){
-                resultado += numbers[i];
-            } else if(i == 3){
-                resultado += ") " + numbers[i];
-            } else if(i < 6){
-                resultado += numbers[i];
-            } else if(i == 6){
-                resultado += "-" + numbers[i];
-            } else{
-                resultado += numbers[i];
-            }
+        String phoneNumber = new String("(xxx) xxx-xxxx");
+    
+        for (int i : numbers) {
+            phoneNumber = phoneNumber.replaceFirst("x", Integer.toString(i));
         }
-        return resultado;
+        return phoneNumber;
     }
 }
